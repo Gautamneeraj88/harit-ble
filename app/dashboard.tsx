@@ -1,13 +1,13 @@
 import { useRouter } from 'expo-router';
 import {
-  Thermometer,
-  Droplets,
-  Wheat,
-  Wind,
-  Settings,
+    Droplets,
+    Settings,
+    Thermometer,
+    Wheat,
+    Wind,
 } from 'lucide-react-native';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { View, Text, TouchableOpacity, Animated } from 'react-native';
+import { Animated, Text, TouchableOpacity, View } from 'react-native';
 
 import { useBLE } from '@/hooks/useBLE';
 import { bleEmitter } from '@/services/bleManager';
