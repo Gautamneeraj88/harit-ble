@@ -1,50 +1,74 @@
-# Welcome to your Expo app 👋
+# Pro Dark Mode - Grain Quality Monitor
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A premium hardware-companion app for monitoring grain quality in real-time with a sleek, technical dark mode interface.
 
-## Get started
+## 🎨 Design System
 
-1. Install dependencies
+### Color Palette
+- **Primary:** `#00E5FF` - Cyan neon (Buttons, active tabs, radar sweeps)
+- **Background:** `#090A0F` - Deep void navy
+- **Surface:** `#12151F` - Cards, elevated containers
+- **Text:** `#F1F5F9` - Primary body text
+- **Muted:** `#64748B` - Subtitles, inactive icons
+- **Good:** `#00FF66` - Optimal grain score
+- **Warning:** `#FFB300` - Marginal grain score
+- **Critical:** `#FF2A2A` - Danger grain score
 
-   ```bash
-   npm install
-   ```
+### Typography
+- **Headings:** Space Grotesk, 700, 24-32px
+- **Body:** Manrope, 500, 16px
+- **Data Readouts:** JetBrains Mono, 400-700, 20-40px
+- **Buttons:** Space Grotesk, 700, 15px, uppercase tracking 1px
 
-2. Start the app
+## 📱 Screens
 
-   ```bash
-   npx expo start
-   ```
+1. **Device Discovery** - Radar animation with BLE device scanning
+2. **WiFi Provisioning** - Network credential transmission
+3. **Live Dashboard** - Real-time telemetry with dynamic scoring
+4. **Node Settings** - Hardware diagnostics and controls
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## 🚀 Getting Started
 
 ```bash
-npm run reset-project
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+
+# Run on iOS
+npm run ios
+
+# Run on Android
+npm run android
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🏗️ Tech Stack
 
-## Learn more
+- React Native (Expo)
+- Nativewind (Tailwind CSS)
+- Expo Router
+- Lucide React Native
+- react-native-ble-manager
+- Google Fonts
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📂 Project Structure
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```
+app/
+├── (tabs)/          # Tab navigation
+├── scanner.tsx      # Device Discovery
+├── provision.tsx    # WiFi Setup
+├── dashboard.tsx    # Live Dashboard
+└── settings.tsx     # Node Settings
+```
 
-## Join the community
+## 🎯 Key Features
 
-Join our community of developers creating universal apps.
+- **Animated Radar Scan** - Rotating sweep visualization
+- **Real-time Data** - 5-second polling with pulse animations
+- **BLE Provisioning** - Send WiFi credentials to hardware
+- **Dynamic Scoring** - Color-coded quality metrics (0-100)
+- **Pro Dark UI** - Technical aesthetic with glowing accents
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Built with ❤️ using Expo, React Native, and Nativewind
