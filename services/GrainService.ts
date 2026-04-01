@@ -1,9 +1,9 @@
-import BleManager from 'react-native-ble-manager';
+import BleManager from "react-native-ble-manager";
 
-const SERVICE_UUID = '4fafc201-1fb5-459e-8fcc-c5c9c331914b';
-const SSID_CHAR_UUID = 'beb5483e-36e1-4688-b7f5-ea07361b26a8';
-const PASS_CHAR_UUID = 'beb5483e-36e1-4688-b7f5-ea07361b26a9';
-const SENSOR_CHAR_UUID = 'beb5483e-36e1-4688-b7f5-ea07361b26aa';
+const SERVICE_UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
+const SSID_CHAR_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8";
+const PASS_CHAR_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26a9";
+const SENSOR_CHAR_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26aa";
 
 // Change to your Mac's IP
 const API_URL = 'http://192.168.31.95:3000/api/readings';
@@ -49,31 +49,51 @@ export const GrainService = {
   },
 
   // BLE: Send WiFi credentials to ESP32
-  sendWifi: async (peripheralId: string, ssid: string, pass: string): Promise<boolean> => {
+  sendWifi: async (
+    peripheralId: string,
+    ssid: string,
+    pass: string,
+  ): Promise<boolean> => {
     try {
       await BleManager.retrieveServices(peripheralId);
 
       // Write SSID
-      await BleManager.write(peripheralId, SERVICE_UUID, SSID_CHAR_UUID, stringToBytes(ssid));
+      await BleManager.write(
+        peripheralId,
+        SERVICE_UUID,
+        SSID_CHAR_UUID,
+        stringToBytes(ssid),
+      );
 
       // Write Password
-      await BleManager.write(peripheralId, SERVICE_UUID, PASS_CHAR_UUID, stringToBytes(pass));
+      await BleManager.write(
+        peripheralId,
+        SERVICE_UUID,
+        PASS_CHAR_UUID,
+        stringToBytes(pass),
+      );
 
       return true;
     } catch (error) {
-      console.error('BLE Write Error:', error);
+      console.error("BLE Write Error:", error);
       return false;
     }
   },
 
   // BLE: Read sensor data directly from device
-  readSensorData: async (peripheralId: string): Promise<SensorReading | null> => {
+  readSensorData: async (
+    peripheralId: string,
+  ): Promise<SensorReading | null> => {
     try {
       await BleManager.retrieveServices(peripheralId);
-      const data = await BleManager.read(peripheralId, SERVICE_UUID, SENSOR_CHAR_UUID);
+      const data = await BleManager.read(
+        peripheralId,
+        SERVICE_UUID,
+        SENSOR_CHAR_UUID,
+      );
       return parseSensorData(data);
     } catch (error) {
-      console.error('BLE Read Error:', error);
+      console.error("BLE Read Error:", error);
       return null;
     }
   },
@@ -82,10 +102,14 @@ export const GrainService = {
   startSensorNotifications: async (peripheralId: string): Promise<boolean> => {
     try {
       await BleManager.retrieveServices(peripheralId);
-      await BleManager.startNotification(peripheralId, SERVICE_UUID, SENSOR_CHAR_UUID);
+      await BleManager.startNotification(
+        peripheralId,
+        SERVICE_UUID,
+        SENSOR_CHAR_UUID,
+      );
       return true;
     } catch (error) {
-      console.error('BLE Notification Error:', error);
+      console.error("BLE Notification Error:", error);
       return false;
     }
   },
@@ -93,7 +117,11 @@ export const GrainService = {
   // BLE: Stop notifications
   stopSensorNotifications: async (peripheralId: string): Promise<void> => {
     try {
-      await BleManager.stopNotification(peripheralId, SERVICE_UUID, SENSOR_CHAR_UUID);
+      await BleManager.stopNotification(
+        peripheralId,
+        SERVICE_UUID,
+        SENSOR_CHAR_UUID,
+      );
     } catch {
       // Ignore errors on stop
     }
