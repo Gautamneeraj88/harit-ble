@@ -187,7 +187,7 @@ export default function ScannerScreen() {
                 </View>
                 <View className="flex-1">
                   <Text className="font-display text-text-main font-bold text-lg leading-none mb-1">
-                    {item.name || 'Unknown Device'}
+                    {item.name || item.advertising?.localName || 'Unknown Device'}
                   </Text>
                   <Text className="font-mono text-muted text-xs">
                     MAC: {item.id}

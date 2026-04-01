@@ -6,7 +6,7 @@ const PASS_CHAR_UUID = 'beb5483e-36e1-4688-b7f5-ea07361b26a9';
 const SENSOR_CHAR_UUID = 'beb5483e-36e1-4688-b7f5-ea07361b26aa';
 
 // Change to your Mac's IP
-const API_URL = 'http://192.168.1.105:3000/api/readings';
+const API_URL = 'http://192.168.31.95:3000/api/readings';
 
 export interface SensorReading {
   temperature: number;

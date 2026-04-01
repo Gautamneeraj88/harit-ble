@@ -124,7 +124,9 @@ export function useBLE(): UseBLEState & UseBLEActions {
   const updateFilteredDevices = useCallback(() => {
     const devices = Array.from(allDiscoveredDevices.current.values());
     if (filterGrainQuality) {
-      const filtered = devices.filter((d) => d.name === 'GrainQuality');
+      const filtered = devices.filter(
+        (d) => d.name === 'GrainQuality' || d.advertising?.localName === 'GrainQuality'
+      );
       console.log(LOG_TAG, 'Filtered devices (GrainQuality only):', filtered.length);
       setDiscoveredDevices(filtered);
     } else {

@@ -29,7 +29,6 @@ export function LiveIndicator({ label = 'Live Monitoring', color = '#00F0FF' }: 
   return (
     <View className="flex-row items-center gap-2">
       <Animated.View
-        style={{ opacity: pulseAnim }}
         className="w-2 h-2 rounded-full"
         // @ts-ignore
         style={{ backgroundColor: color, opacity: pulseAnim }}

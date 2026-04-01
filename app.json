@@ -57,7 +57,8 @@
         {
           "isBackgroundEnabled": false,
           "modes": ["central"],
-          "bluetoothAlwaysPermission": "Allow Grain Quality to connect to your device."
+          "bluetoothAlwaysPermission": "Allow Grain Quality to connect to your device.",
+          "neverForLocation": true
         }
       ]
     ],
